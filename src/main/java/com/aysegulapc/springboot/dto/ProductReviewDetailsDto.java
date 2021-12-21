@@ -8,8 +8,8 @@ public class ProductReviewDetailsDto {
     private Date reviewDate;
     private String userName;
     private String productName;
-
-
+    private Long userId;
+    private Long productId;
 
     public String getReview() {
         return review;
@@ -41,5 +41,21 @@ public class ProductReviewDetailsDto {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }

@@ -19,10 +19,14 @@ public interface ReviewConverter {
 
     @Mapping(target = "userName", source = "user.userName")
     @Mapping(target = "productName", source = "product.name")
+    @Mapping(target = "productId", source = "product.id")
+    @Mapping(target = "userId", source = "user.id")
     ProductReviewDetailsDto convertProductReviewToProductReviewDto(ProductReview productReview);
 
     @Mapping(source = "userName", target = "user.userName")
     @Mapping(source = "productName", target = "product.name")
+    @Mapping(source = "productId", target = "product.id")
+    @Mapping(source = "userId", target = "user.id")
     ProductReview convertProductReviewDtoToProductReview(ProductReviewDetailsDto productReviewDetailsDto);
 
 }

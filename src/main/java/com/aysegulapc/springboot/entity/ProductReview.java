@@ -1,5 +1,6 @@
 package com.aysegulapc.springboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import java.util.Date;
  * */
 @Entity
 @Table(name = "PRODUCTREVIEW")
-//@JsonFilter("ReviewFilter")
+@JsonFilter("ReviewFilter")
 @Component
 @JsonIgnoreProperties({"hibernateLazyInitializer", "user", "product"})
 public class ProductReview implements Serializable {

@@ -60,7 +60,7 @@ public class UserController {
         User user = userEntityService.findAllByPhone(phone);
         if(userEntityService.findAllByPhone(phone) == null ||
                 userEntityService.findAllByUserName(userName) == null ||
-                !Objects.equals(user.getUserName(), userName)
+                !Objects.equals(user.getId(), userEntityService.findAllByUserName(userName).getId())
         ) {
             throw new UserNotFoundException(userName + " kullanıcı adı ile " + phone + " telefon bilgileri uyuşmamaktadır");
         }

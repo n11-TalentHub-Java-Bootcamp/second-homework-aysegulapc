@@ -33,12 +33,12 @@ public class ProductReview implements Serializable {
     @Column(name = "REVIEW_DATE")
     private Date review_date;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_ID",
             foreignKey = @ForeignKey(name = "FK_PRODUCT_ID"))
     private Product product;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID",
             foreignKey = @ForeignKey(name = "FK_PRODUCT_REVIEW_USER_ID"))
     private User user;

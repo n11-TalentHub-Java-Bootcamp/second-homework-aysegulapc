@@ -17,6 +17,10 @@ public interface ReviewConverter {
     @Mapping(target = "productName", source = "product.name")
     List<ProductReviewDetailsDto> convertReviewListToProductReviewDetailsDtoList(List<ProductReview> reviewList);
 
+    @Mapping(target = "userName", source = "user.userName")
+    @Mapping(target = "productName", source = "product.name")
+    ProductReviewDetailsDto convertProductReviewToProductReviewDto(ProductReview productReview);
+
     @Mapping(source = "userName", target = "user.userName")
     @Mapping(source = "productName", target = "product.name")
     ProductReview convertProductReviewDtoToProductReview(ProductReviewDetailsDto productReviewDetailsDto);

@@ -29,7 +29,6 @@ public class ReviewController {
         if(productReviewList.size() == 0) {
             throw new ReviewNotFoundException(userId + " ID'li kullanıcı henüz bir yorum yapmamıştır.");
         }
-
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "review", "reviewDate");
         SimpleFilterProvider filters = new SimpleFilterProvider().addFilter("ReviewFilter", filter);
         MappingJacksonValue mapping = new MappingJacksonValue(productReviewList);
@@ -44,7 +43,6 @@ public class ReviewController {
             throw new ReviewNotFoundException(productId + " ID'li ürüne henüz bir yorum yapılmamıştır.");
         }
         List<ProductReviewDetailsDto> productReviewDetailsDtoList = ReviewConverter.INSTANCE.convertReviewListToProductReviewDetailsDtoList(productReviewList);
-        convertUsernameAndProductName(productReviewList, productReviewDetailsDtoList);
         return productReviewDetailsDtoList;
     }
 
@@ -72,14 +70,4 @@ public class ReviewController {
         }
         reviewEntityService.deleteById(id);
     }
-
-    private void convertUsernameAndProductName(List<ProductReview> productReviewList, List<ProductReviewDetailsDto> productReviewDetailsDtoList) {
-        for (ProductReview productReview : productReviewList) {
-            for (ProductReviewDetailsDto productReviewDetailsDto : productReviewDetailsDtoList) {
-                productReviewDetailsDto.setProductName(productReview.getProduct().getName());
-                productReviewDetailsDto.setUserName(productReview.getUser().getUserName());
-            }
-        }
-    }
-
 }
